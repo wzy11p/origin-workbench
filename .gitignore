@@ -1,11 +1,11 @@
 # Local dependencies, runtimes, build output and user content
 node_modules/
-runtime/
-data/
+/runtime/
+/data/
 out/
 dist/
 coverage/
-artifacts/
+/artifacts/
 .venv/
 __pycache__/
 *.pyc
