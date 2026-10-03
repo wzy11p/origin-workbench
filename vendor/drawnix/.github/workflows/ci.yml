@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - run: npm ci
+      - uses: nrwl/nx-set-shas@v5
+        with:
+          main-branch-name: develop
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - run: npx nx affected -t test build --base=$NX_BASE --head=$NX_HEAD --verbose
+      - run: npx nx affected -t e2e --base=$NX_BASE --head=$NX_HEAD --parallel 1 --verbose

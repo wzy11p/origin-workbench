@@ -1,0 +1,142 @@
+.planning {
+  color: var(--studio-ink);
+  padding: 0 0 24px;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.heading h2 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.heading p {
+  color: var(--studio-muted);
+  margin: 0;
+  max-width: 62ch;
+  line-height: 1.7;
+}
+.hint {
+  color: var(--studio-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.blueprint {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+.fieldNav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: stretch;
+}
+.fieldNav :global(.arco-btn) {
+  height: auto;
+  min-height: 42px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  text-align: start;
+  white-space: normal;
+  color: var(--studio-ink);
+}
+.fieldNav :global(.arco-btn):hover,
+.fieldNav :global(.arco-btn).selected {
+  background: var(--studio-wash);
+  color: var(--studio-accent);
+}
+.fieldEditor {
+  min-width: 0;
+  max-width: 760px;
+}
+.fieldEditor h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  line-height: 1.5;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px 0;
+  color: var(--studio-ink);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.readField {
+  border-bottom: 1px solid var(--studio-line);
+  padding: 12px 0;
+}
+.readField h4 {
+  font-size: 14px;
+  margin: 8px 0;
+}
+.readField p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+.readiness {
+  max-width: 850px;
+  padding-top: 16px;
+}
+.readiness h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+.gapList {
+  padding: 0;
+  list-style: none;
+  margin: 24px 0;
+}
+.gapList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--studio-line);
+}
+.gapList li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.section {
+  border-top: 1px solid var(--studio-line);
+  padding: 28px 0;
+}
+.section p {
+  color: var(--studio-muted);
+  line-height: 1.8;
+  max-width: 70ch;
+}
+.section :global(.arco-alert) {
+  margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .blueprint {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .fieldNav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .heading {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
